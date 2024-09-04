@@ -1,0 +1,15 @@
+{
+	"firstName":"",
+	
+	"lastName":"",
+	
+	"email":"",
+	
+	"password":"",
+	
+	"gender":"",
+	
+	"phone":"",
+	
+	"enabled":true
+}

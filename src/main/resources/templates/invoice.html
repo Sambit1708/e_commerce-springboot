@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Invoice: <span th:text="${invoice.invoiceNumber}"></span></h1>
+        <p>Customer: <span th:text="${invoice.customerName}"></span></p>
+        <p>Address:</p>
+        <p>
+            <span th:text="${invoice.address.address}"></span><br>
+            <span th:text="${invoice.address.city}"></span>, <span th:text="${invoice.address.state}"></span> <span
+                th:text="${invoice.address.pinCode}"></span><br>
+            <span>India</span>
+        </p>
+        <p>Date: <span th:text="${invoice.invoiceDate}"></span></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${invoice.invoiceItems}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.description}"></td>
+                    <td th:text="${item.quantity}"></td>
+                    <td th:text="${item.unitPrice}"></td>
+                    <td th:text="${item.unitPrice * item.quantity}"></td>
+                </tr>
+                <tr>
+					<td colspan="2"></td>
+					<td colspan="2">Delivery Charge</td>
+					<td>50</td>
+				</tr>
+				<tr>
+					<td colspan="2"></td>
+					<td colspan="2">Total</td>
+					<td th:text="${invoice.total}"></td>
+				</tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
