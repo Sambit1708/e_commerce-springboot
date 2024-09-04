@@ -10,8 +10,8 @@ import io.swagger.v3.oas.annotations.servers.Server;
 		info = @Info(
 				contact = @Contact(
 						name="Sambit Khandai",
-						email="sambitk2001@gmail.com",
-						url="http://localhost:8080/"
+						email="sambitkhandai6@gmail.com",
+						url="http://localhost:8085/"
 				),
 				description = "This is a e-commerce application",
 				title = "ECommerce App",
@@ -25,11 +25,11 @@ import io.swagger.v3.oas.annotations.servers.Server;
 		servers = {
 				@Server(
 						description = "DEV ENV",
-						url = "http://localhost:8080"
+						url = "http://localhost:8085"
 				),
 				@Server(
 						description = "PROD ENV",
-						url = "http://localhost:8080"
+						url = "http://localhost:8085"
 				)
 		}
 )
